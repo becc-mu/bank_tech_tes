@@ -17,6 +17,31 @@
 **When** she prints her bank statement  
 **Then** she would see
 
+### User stroy
+
+```
+as a client
+So I have a bank account
+I should be able to open an account
+
+as a client
+so I can put my money
+I would like to deposit money to my account
+
+as a client
+so I can get my money
+I would like to withdraw money from my account
+
+as a client
+so I can see my statement
+I should be able to print my bank statement
+
+as a client
+so I can see all my fund movement
+I should be able to see the dates on my statement
+
+```
+
 ```
 date || credit || debit || balance
 14/01/2012 || || 500.00 || 2500.00
