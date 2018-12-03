@@ -9,4 +9,7 @@ attr_reader :balance
   def add(amount)
     @balance += amount
   end
+
+  def withdraw(amount)
+  end 
 end
