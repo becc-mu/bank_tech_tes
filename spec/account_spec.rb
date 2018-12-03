@@ -13,6 +13,7 @@ describe Account do
 
   it 'allows client to withdraw(amount) from account' do
     account = Account.new
+    account.add(100)
     account.withdraw(40)
     expect(account.balance).to eq 60
   end

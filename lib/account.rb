@@ -11,5 +11,6 @@ attr_reader :balance
   end
 
   def withdraw(amount)
-  end 
+    @balance -= amount
+  end
 end
