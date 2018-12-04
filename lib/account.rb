@@ -1,16 +1,18 @@
 class Account
 
-attr_reader :balance
+attr_reader :balance, :statement
 
   def initialize
+    @statment = Statement.new
     @balance = 0
+
   end
 
-  def add(amount)
+  def credit(amount)
     @balance += amount
   end
 
-  def withdraw(amount)
+  def debit(amount)
     @balance -= amount
   end
 end
