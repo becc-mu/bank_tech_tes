@@ -8,13 +8,13 @@ Print or view statement
 ### How to start
 
 * Clone this repo git clone https://github.com/becc-mu/bank_tech_test
-* Change cd bank_tech_test
-* Open your prefered command editor irb or pry
-* Require files require './lib/statement'
-* Create new account by typing account = Account.new
-* Deposit money account.credit(1000)
-* Withdraw money account.debit(500)
-* To view statement print account.print_statement
+* Change ``` cd bank_tech_test ```
+* Open your prefered command editor ```irb ``` or ``` pry ```
+* Require files ``` require './lib/statement' ```
+* Create new account by typing ``` account = Account.new ```
+* Deposit money ``` account.credit(1000) ```
+* Withdraw money ``` account.debit(500) ```
+* To view statement ``` print account.print_statement ```
 
 ### Language and Tests
 
@@ -23,7 +23,9 @@ Print or view statement
 ## My approach
 My approach to this challenge is a combination of user story and two class diagram. Account class for recording debit and credits and statement class for keeping log of transactions.
 
-![screenshot](https://github.com/becc-mu/bank_tech_test/blob/master/assets/Screen%20shot%20irb.png)
+![](https://github.com/becc-mu/bank_tech_test/blob/master/assets/Screen_shot.png)
+
+
 
 ### User stroy
 
