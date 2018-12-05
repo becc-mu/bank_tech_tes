@@ -1,18 +1,24 @@
+# Account class
 class Account
-
-attr_reader :balance, :statement
+  attr_reader :balance, :statement, :transaction_history
 
   def initialize
     @statment = Statement.new
     @balance = 0
-
+    @transaction_history = []
   end
 
-  def credit(amount)
+  def credit(amount, date = time)
     @balance += amount
   end
 
-  def debit(amount)
+  def debit(amount, date = time)
     @balance -= amount
   end
+  private
+
+  def time
+    Time.now.strftime('%d/%m/%Y')
+  end
+
 end
