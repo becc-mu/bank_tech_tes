@@ -20,6 +20,12 @@ class Account
 
   def debit(amount, date = time)
     @balance -= amount
+    @transaction_history << {
+      date: date,
+      credit: '',
+      debit: amount,
+      balance: @balance
+    }
   end
   private
 
