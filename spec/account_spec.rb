@@ -29,5 +29,13 @@ describe Account do
       account.credit(1000, date)
       expect(account.transaction_history).to include({:balance=>1000, :credit=>1000, :date=>"05/12/2018", :debit=>""} )
     end
+
+    it 'logs multiple transactions' do
+      account = Account.new
+      account.credit(1000, date)
+      account.credit(2000, date)
+      account.debit(500, date)
+      expect(account.transaction_history.length).to eq(3)
+    end
   end
 end
