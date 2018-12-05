@@ -2,10 +2,9 @@ require_relative './account'
 
 # Statement class
 class Statement
-  attr_reader :header, :statement, :date, :credit, :debit, :balance, :transaction_history
+  attr_reader :statement, :date, :credit, :debit, :balance, :transaction_history
 
   def initialize
-    @header = 'date || credit || debit || balance'
     @statement = statement
     @date = date
     @credit = credit
@@ -16,7 +15,7 @@ class Statement
 
   def view_transactions(transaction_history)
     puts 'date || credit || debit || balance'
-    transaction_history.each do |key|
+    transaction_history.reverse_each do |key|
       puts
       key.each do |_key, value|
         print "#{value} || "  \

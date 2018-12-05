@@ -18,6 +18,8 @@ class Account
   end
 
   def debit(amount, date = time)
+    raise 'Insufficient funds' if amount > @balance
+
     @balance -= amount
     @transaction_history << {
       date: date,
