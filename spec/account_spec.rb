@@ -6,7 +6,6 @@ describe Account do
   subject(:account) { described_class.new }
   date = Time.now.strftime('%d/%m/%Y')
 
-
   describe '#create an account' do
     it 'starts with 0 balance' do
       expect(account.balance).to eq(0)
