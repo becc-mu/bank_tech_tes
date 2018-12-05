@@ -1,11 +1,9 @@
 source 'http://rubygems.org'
 
 gem 'rspec'
-gem 'sinatra'
-gem 'sinatra-flash'
+gem 'rubocop'
 
 group :test do
-gem 'capybara'
-gem 'simplecov'
-gem 'simplecov-console', require: false
+  gem 'simplecov'
+  gem 'simplecov-console', require: false
 end
