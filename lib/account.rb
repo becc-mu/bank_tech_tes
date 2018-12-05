@@ -1,9 +1,8 @@
 # Account class
 class Account
-  attr_reader :balance, :statement, :transaction_history
+  attr_reader :balance, :transaction_history
 
   def initialize
-    @statment = Statement.new
     @balance = 0
     @transaction_history = []
   end
@@ -27,10 +26,14 @@ class Account
       balance: @balance
     }
   end
+
+  def print_statement(statement = Statement.new)
+    statement.view_transactions(@transaction_history)
+  end
+
   private
 
   def time
     Time.now.strftime('%d/%m/%Y')
   end
-
 end

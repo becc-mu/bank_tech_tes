@@ -14,17 +14,14 @@ class Statement
     @transaction_history = []
   end
 
-
-
   def view_transactions(transaction_history)
-    #puts "#{header}"
     puts 'date || credit || debit || balance'
     transaction_history.each do |key|
-    puts
-    key.each do |key, value|
-    print "#{value} ||"
-     end
-     "\n"
+      puts
+      key.each do |_key, value|
+        print "#{value} || "  \
+      end
+      \
     end
   end
 end

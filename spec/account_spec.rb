@@ -1,7 +1,6 @@
 require 'account'
 
 describe Account do
-  let(:transaction_history) { double :transaction_history[] }
   date = Time.now.strftime('%d/%m/%Y')
   describe '#deposites' do
     it 'starts with 0 balance' do
@@ -12,7 +11,6 @@ describe Account do
       account = Account.new
       account.credit(100, date)
       expect(account.balance).to eq 100
-
     end
 
     it 'allows client to debit(amount, date) from account' do
@@ -27,7 +25,7 @@ describe Account do
     it 'logs transactions' do
       account = Account.new
       account.credit(1000, date)
-      expect(account.transaction_history).to include({:balance=>1000, :credit=>1000, :date=>"05/12/2018", :debit=>""} )
+      expect(account.transaction_history).to include(balance: 1000, credit: 1000, date: '05/12/2018', debit: '')
     end
 
     it 'logs multiple transactions' do
