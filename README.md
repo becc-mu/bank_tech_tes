@@ -12,6 +12,9 @@ Print or view statement
 * Open your prefered command editor irb or pry
 * Require files require './lib/statement'
 * Create new account by typing account = Account.new
+* Deposit money account.credit(1000)
+* Withdraw money account.debit(500)
+* To view statement print account.print_statement
 
 ### Language and Tests
 
