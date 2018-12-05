@@ -10,6 +10,12 @@ class Account
 
   def credit(amount, date = time)
     @balance += amount
+    @transaction_history << {
+      date: date,
+      credit: amount,
+      debit: '',
+      balance: @balance
+    }
   end
 
   def debit(amount, date = time)
