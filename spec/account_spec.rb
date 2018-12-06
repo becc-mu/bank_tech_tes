@@ -39,6 +39,6 @@ describe Account do
       account.credit(50)
       account.debit(10)
       expect(subject).to respond_to(:print_statement)
-    end
+    end  
   end
 end
