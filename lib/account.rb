@@ -8,6 +8,7 @@ class Account
   end
 
   def credit(amount, date = time)
+    check_amount(amount)
     @balance += amount
     @transaction_history << {
       date: date,
@@ -18,8 +19,8 @@ class Account
   end
 
   def debit(amount, date = time)
-    raise 'Insufficient funds' if amount > @balance
-
+    check_amount(amount)
+    check_balance(amount)
     @balance -= amount
     @transaction_history << {
       date: date,
@@ -34,6 +35,14 @@ class Account
   end
 
   private
+
+  def check_amount(amount)
+    raise 'You must enter a number!' unless amount.is_a? Numeric
+  end
+
+  def check_balance(amount)
+    raise 'Insufficient funds' if amount > @balance
+  end
 
   def time
     Time.now.strftime('%d/%m/%Y')

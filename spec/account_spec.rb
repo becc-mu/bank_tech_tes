@@ -8,7 +8,13 @@ describe Account do
 
   describe '#create an account' do
     it 'starts with 0 balance' do
+      allow(transaction_history).to receive(:balance).and_return(0)
       expect(account.balance).to eq(0)
+    end
+
+    it 'raise error when input is not number' do
+      allow(transaction_history).to receive(:credit)
+      expect { account.credit('abc') }.to raise_error 'You must enter a number!'
     end
     it '#deposites allows client to credit(amount, date) to account' do
       account.credit(100, date)
@@ -17,7 +23,7 @@ describe Account do
 
     it 'to raise error when insufficient funds' do
       allow(transaction_history).to receive(:debit)
-      expect { account.debit(10000) }.to raise_error'Insufficient funds'
+      expect { account.debit(10_000) }.to raise_error 'Insufficient funds'
     end
 
     it '#withdraw funds from account' do
@@ -29,12 +35,10 @@ describe Account do
 
   describe '#transaction logs' do
     it 'prints statement' do
-      transaction_history = spy('transaction_history')
       allow(statement).to receive(:transaction_history)
       account.credit(50)
       account.debit(10)
       expect(subject).to respond_to(:print_statement)
-
     end
   end
 end
