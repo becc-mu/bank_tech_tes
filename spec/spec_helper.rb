@@ -1,7 +1,8 @@
-require 'simplecov'
-require 'simplecov-console'
 require 'coveralls'
 Coveralls.wear!
+require 'simplecov'
+require 'simplecov-console'
+
 
 
 
