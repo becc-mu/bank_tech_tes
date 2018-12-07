@@ -141,8 +141,36 @@
         null,
         null,
         null
+      ],
+      "/Users/rebeccamulugeta/Projects/bank_tech_test/spec/transaction_spec.rb": [
+        1,
+        1,
+        null,
+        3,
+        1,
+        null,
+        1,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/rebeccamulugeta/Projects/bank_tech_test/lib/transaction.rb": [
+        1,
+        null,
+        1,
+        1,
+        0,
+        0,
+        null,
+        1,
+        0,
+        null,
+        null
       ]
     },
-    "timestamp": 1544116473
+    "timestamp": 1544194641
   }
 }
