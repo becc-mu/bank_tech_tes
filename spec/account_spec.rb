@@ -35,15 +35,6 @@ describe Account do
     end
   end
 
-  describe 'transaction_history' do
-    it 'returns transaction log' do
-      account = Account.new
-      account.credit(100)
-      account.debit(40)
-      expect(account.transaction_history).not_to be_nil
-    end
-  end
-
   describe '#print_statement' do
     it 'prints statement' do
       allow(statement).to receive(:transaction_history)

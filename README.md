@@ -2,7 +2,11 @@
 
 
 [![Build Status](https://travis-ci.com/becc-mu/bank_tech_test.svg?branch=master)](https://travis-ci.com/becc-mu/bank_tech_test)
-#
+
+[![Coverage Status](https://coveralls.io/repos/github/becc-mu/bank_tech_test/badge.svg)](https://coveralls.io/github/becc-mu/bank_tech_test)
+
+##
+
 Banking test allows user to interact on a commandline
 Open a new bank account
 Deposite and Withdraw fund

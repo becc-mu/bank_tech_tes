@@ -12,6 +12,7 @@ class Statement
           print_float(transactions[:balance])
         ].join(' || ')
       end
+      \
   end
 
   def print_statement(transaction_history)

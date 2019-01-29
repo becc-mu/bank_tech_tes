@@ -7,6 +7,15 @@ class TransactionHistory
     @transaction_history = []
   end
 
+  # describe 'transaction_history' do
+  #   it 'returns transaction log' do
+  #     account = Account.new
+  #     account.credit(100)
+  #     account.debit(40)
+  #     expect(account.transaction_history).not_to be_nil
+  #   end
+  # end
+
   def log_transaction(deposit:, withdrawal:, balance:)
     transaction = @transaction.new(
       deposit: deposit,
