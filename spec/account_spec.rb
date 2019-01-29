@@ -2,43 +2,58 @@ require 'account'
 
 describe Account do
   let(:statement) { double :statement }
-  let(:transaction_history) { double :transaction_history }
   subject(:account) { described_class.new }
-  date = Time.now.strftime('%d/%m/%Y')
+  let(:transactions) { double :transactions }
 
   describe '#create an account' do
     it 'starts with 0 balance' do
-      allow(transaction_history).to receive(:balance).and_return(0)
+      allow(transactions).to receive(:balance).and_return(0)
       expect(account.balance).to eq(0)
     end
-
+  end
+  describe '#credit' do
     it 'raise error when input is not number' do
-      allow(transaction_history).to receive(:credit)
       expect { account.credit('abc') }.to raise_error 'You must enter a number!'
     end
     it '#deposites allows client to credit(amount, date) to account' do
-      account.credit(100, date)
+      account.credit(100)
       expect(account.balance).to eq 100
     end
+  end
 
+  describe '#debit' do
     it 'to raise error when insufficient funds' do
-      allow(transaction_history).to receive(:debit)
-      expect { account.debit(10_000) }.to raise_error 'Insufficient funds'
+      account = Account.new
+      account.credit(100)
+      expect { account.debit(3000) }.to raise_error 'Insufficient funds!'
     end
 
     it '#withdraw funds from account' do
-      account.credit(100, date)
+      account.credit(100)
       account.debit(40)
       expect(account.balance).to eq 60
     end
   end
 
-  describe '#transaction logs' do
+  describe 'transaction_history' do
+    it 'returns transaction log' do
+      account = Account.new
+      account.credit(100)
+      account.debit(40)
+      expect(account.transaction_history).not_to be_nil
+    end
+  end
+
+  describe '#print_statement' do
     it 'prints statement' do
       allow(statement).to receive(:transaction_history)
-      account.credit(50)
-      account.debit(10)
       expect(subject).to respond_to(:print_statement)
-    end  
+    end
+    it 'passes when #print_statement is called and statement receives #print' do
+      statement = spy('statement')
+      subject = Account.new(statement)
+      subject.print_statement
+      expect(statement.print).to have_received(:print)
+    end
   end
 end
