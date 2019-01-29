@@ -1,4 +1,6 @@
 require_relative './transaction.rb'
+
+# This calss is responsible for printing statment
 class Statement
   def print(transaction_history)
     ['date || credit || debit || balance'] +
