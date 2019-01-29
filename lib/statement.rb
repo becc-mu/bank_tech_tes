@@ -1,26 +1,22 @@
-require_relative './account'
-
-# Statement class
+require_relative './transaction.rb'
 class Statement
-  attr_reader :statement, :date, :credit, :debit, :balance, :transaction_history
-
-  def initialize
-    @statement = statement
-    @date = date
-    @credit = credit
-    @debit = debit
-    @balance = balance
-    @transaction_history = []
+  def print(transaction_history)
+    ['date || credit || debit || balance'] +
+      transaction_history.reverse.map do |transactions|
+        [
+          transactions[:date],
+          print_float(transactions[:credit]),
+          print_float(transactions[:debit]),
+          print_float(transactions[:balance])
+        ].join(' || ')
+      end
   end
 
-  def view_transactions(transaction_history)
-    puts 'date || credit || debit || balance'
-    transaction_history.reverse_each do |key|
-      puts
-      key.each do |_key, value|
-        print "#{value} || "  \
-      end
-      \
-    end
+  def print_statement(transaction_history)
+    print(transaction_history).join("\n")
+  end
+
+  def print_float(value)
+    format('%.2f', value) unless value.nil?
   end
 end

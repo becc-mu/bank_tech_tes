@@ -1,50 +1,36 @@
-# Account class
+# This calss is responsible for handling deposits, withdrawals, and balance
 class Account
   attr_reader :balance, :transaction_history
 
-  def initialize
+  def initialize(transaction_history = TransactionHistory.new)
     @balance = 0
-    @transaction_history = []
+    @transaction_history = transaction_history
+    @transactions = []
   end
 
-  def credit(amount, date = time)
-    check_amount(amount)
-    @balance += amount
-    @transaction_history << {
-      date: date,
-      credit: amount,
-      debit: '',
+  def credit(deposit)
+    raise 'You must enter a number!' unless deposit.is_a? Numeric
+
+    @balance += deposit
+    @transactions = transaction_history.log_transaction(
+      deposit: deposit,
+      withdrawal: nil,
       balance: @balance
-    }
+    )
   end
 
-  def debit(amount, date = time)
-    check_amount(amount)
-    check_balance(amount)
-    @balance -= amount
-    @transaction_history << {
-      date: date,
-      credit: '',
-      debit: amount,
+  def debit(withdrawal)
+    raise 'Insufficient funds!' if withdrawal > @balance
+
+    @balance -= withdrawal
+    @transactions = transaction_history.log_transaction(
+      deposit: nil,
+      withdrawal: withdrawal,
       balance: @balance
-    }
+    )
   end
 
   def print_statement(statement = Statement.new)
-    statement.view_transactions(@transaction_history)
-  end
-
-  private
-
-  def check_amount(amount)
-    raise 'You must enter a number!' unless amount.is_a? Numeric
-  end
-
-  def check_balance(amount)
-    raise 'Insufficient funds' if amount > @balance
-  end
-
-  def time
-    Time.now.strftime('%d/%m/%Y')
+    statement.print_statement(@transactions)
   end
 end
