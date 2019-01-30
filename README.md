@@ -3,9 +3,9 @@
 # Bank tech test
 
 Banking test allows user to interact on a command line
-Open a new bank account
-Deposit and Withdraw fund
-Print or view statement
+* Open a new bank account
+* Deposit and Withdraw fund
+* Print or view statement
 
 ## How to start
 
