@@ -37,7 +37,7 @@ After completion of the implementation and the test coverage to 100%, I focused 
 
 ### Screenshot
 
-![](https://github.com/becc-mu/bank_tech_test/blob/master/assets/Screen_shot.png)
+![](https://github.com/becc-mu/bank_tech_test/blob/master/assets/Screen%20Shot%202019-01-30%20at%2001.41.50.png)
 
 
 
