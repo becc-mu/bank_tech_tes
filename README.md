@@ -1,40 +1,49 @@
-# bank tech test
-
-
 [![Build Status](https://travis-ci.com/becc-mu/bank_tech_test.svg?branch=master)](https://travis-ci.com/becc-mu/bank_tech_test)
 
 [![Coverage Status](https://coveralls.io/repos/github/becc-mu/bank_tech_test/badge.svg)](https://coveralls.io/github/becc-mu/bank_tech_test)
 
-##
+# Bank tech test
 
-Banking test allows user to interact on a commandline
+Banking test allows user to interact on a command line
 Open a new bank account
-Deposite and Withdraw fund
+Deposit and Withdraw fund
 Print or view statement
 
-### How to start
+## How to start
 
-* Clone this repo git clone https://github.com/becc-mu/bank_tech_test
-* Change ``` cd bank_tech_test ```
-* Open your prefered command editor ```irb ``` or ``` pry ```
-* Require files ``` require './lib/statement' ```
+* Clone repo to your local machine ``` git clone https://github.com/becc-mu/bank_tech_test```
+* Run ```gem install bundle ``` to install dependencies
+
+
+## How to use
+* You should be able to use any of your preferred REPL program ```irb ``` or ``` pry ```
+* Require files
+* ```require './lib/statement'```
+* ```require './lib/account'```
 * Create new account by typing ``` account = Account.new ```
 * Deposit money ``` account.credit(1000) ```
 * Withdraw money ``` account.debit(500) ```
-* To view statement ``` print account.print_statement ```
+* To print a statement ``` print account.print_statement ```
 
-### Language and Tests
+### Language and Running tests
 
-* It is written in Ruby and all the tests have passed with Rspec and RuboCop is used for linting
+* It is written in Ruby and all the tests have passed with Rspec and RuboCop is used for linting.
+* Run ``` rspec ``` on command line for tests.
 
-## My approach
-My approach to this challenge is a combination of user story and two class diagram. Account class for recording debit and credits and statement class for keeping log of transactions.
+### My approach
+I started off with two classes ``` Account ``` and ```Statement```.
+* ```Account``` class is responsible for recording debit and credits
+* ```Statement``` class is responsible for printing transactions.
+
+After completion of the implementation and the test coverage to 100%, I focused on code quality by extracting responsibility from Account class so each class has no more than one responsibility.
+
+### Screenshot
 
 ![](https://github.com/becc-mu/bank_tech_test/blob/master/assets/Screen_shot.png)
 
 
 
-### User stroy
+## User stroy
 
 ```
 as a client
@@ -58,6 +67,21 @@ so I can see all my fund movement
 I should be able to see the dates on my statement
 
 ```
+## Specification
+
+### Requirements
+You should be able to interact with your code via a REPL like IRB or the JavaScript console. (You don't need to implement a command line interface that takes input from STDIN.)
+Deposits, withdrawal.
+Account statement (date, amount, balance) printing.
+Data can be kept in memory (it doesn't need to be stored to a database or anything).
+
+### Acceptance criteria
+
+Given a client makes a deposit of 1000 on 10-01-2012
+And a deposit of 2000 on 13-01-2012
+And a withdrawal of 500 on 14-01-2012
+When she prints her bank statement
+Then she would see
 
 ```
 date || credit || debit || balance

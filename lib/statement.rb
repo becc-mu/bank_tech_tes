@@ -1,4 +1,5 @@
 require_relative './transaction.rb'
+require_relative 'transaction_history'
 
 # This calss is responsible for printing statment
 class Statement
@@ -12,7 +13,6 @@ class Statement
           print_float(transactions[:balance])
         ].join(' || ')
       end
-      \
   end
 
   def print_statement(transaction_history)
